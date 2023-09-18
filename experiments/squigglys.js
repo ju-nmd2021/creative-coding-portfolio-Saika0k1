@@ -7,9 +7,10 @@ function setup() {
     createCanvas(cw, ch); 
 }
 
-function drawOne() {
+function draw() {
     noiseSeed(Math.floor(Math.random() * 10000));
-    background(247, 216, 210);
+
+    background(241, 194, 50);
     for (let y = 0; y < ch/gridSize; y++) {
         for (let x = 0; x < cw/gridSize; x++) {
             let noiseMap = noise(x / divider, y / divider);
@@ -17,8 +18,7 @@ function drawOne() {
                     translate(gridSize/2, gridSize/2);
                     fill(255);
                     noStroke();
-                    rectMode(CENTER);
-                    circle(x * gridSize, y * gridSize, noiseMap * gridSize);
+                    circle(x * gridSize, y * gridSize, noiseMap * gridSize + 20);
                 pop();
         }
     }
@@ -27,5 +27,5 @@ function drawOne() {
 }
 
 function mouseClicked() {
-    drawOne();
+    draw();
 }
